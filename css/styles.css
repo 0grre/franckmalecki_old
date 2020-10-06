@@ -10375,3 +10375,6 @@ body {
 .min-h-50{
   min-height: 50px;
 }
+.text-primary{
+  color: #8abe55;
+}
