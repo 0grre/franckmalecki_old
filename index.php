@@ -1,8 +1,7 @@
 <?php
+session_start();
 require "./src/informations.php";
-require "./src/mailto.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -26,10 +25,10 @@ require "./src/mailto.php";
             <div class="container">
                 <!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Franck Malecki</a>-->
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
 
-                    <a class="mx-2" href="#!"><i class="fab fa-instagram"></i></a>
+                    <a class="mx-2" href="https://www.instagram.com/franck.mlk/?hl=fr"><i class="fab fa-instagram"></i></a>
                 </div>
 
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +50,7 @@ require "./src/mailto.php";
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">TA SEULE LIMITE</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">C'EST TOI</h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="#about">ça m'intéresse</a>
+                    <a class="btn btn-primary js-scroll-trigger" href="#signup">ça m'intéresse</a>
                 </div>
             </div>
         </header>
@@ -83,11 +82,11 @@ require "./src/mailto.php";
 
                         <div class="d-flex flex-row">
                             <div class="min-h-50 w-75 d-flex align-items-center justify-content-center">
-                                <p class="position-absolute m-0 text-white" id="nutri">80% NUTRITION</p>
+                                <p class="position-absolute m-0 text-white small" id="nutri">80% NUTRITION</p>
                                 <div class="h-100 w-100 bg-primary" id="nutrition"></div>
                             </div>
                             <div class="w-25 d-flex align-items-center justify-content-center">
-                                <p class="position-absolute m-0 text-white " id ="spo">20% SPORT</p>
+                                <p class="position-absolute m-0 text-white small" id ="spo">20% SPORT</p>
                                 <div class="h-100 w-100 bg-grey" id="sport"></div>
                             </div>
                         </div>
@@ -146,19 +145,30 @@ require "./src/mailto.php";
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container">
+                <?php if(array_key_exists('errors', $_SESSION)): ?>
+                    <div class="alert alert-danger">
+                        <?= implode('<br>', $_SESSION['errors']); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if(array_key_exists('success', $_SESSION)): ?>
+                    <div class="alert alert-success">
+                        "Votre email a bien été envoyé."
+                    </div>
+                <?php endif; ?>
                 <div class="row">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Tu veux plus d'info ?</h2>
-                        <form class="form-group d-flex flex-column" action="">
+                        <form class="form-group d-flex flex-column" action="src/post_contact.php" method="post">
                             <div class="d-flex flex-rown">
-                            <input class="form-control flex-fill mr-2 mb-3" name="msg_email" id="msg_email" type="email" placeholder="Email ..." />
-                            <select class="form-control flex-fill ml-2 mb-3 text-primary" name="msg_sujet" id="msg_sujet">
+                            <input class="form-control flex-fill mr-2 mb-3" name="contact_email" type="email" placeholder="Email ..." value="<?= isset($_SESSION['inputs']['contact_email'])  ? $_SESSION['inputs']['contact_email'] : ''; ?>"/>
+                            <select class="form-control flex-fill ml-2 mb-3 text-primary" name="contact_goal">
+                                <option class="text-primary">Objectif ...</option>
                                 <option class="text-primary">Prise de masse</option>
                                 <option class="text-primary">Perte de poids</option>
                             </select>
                             </div>
-                            <textarea class="form-control flex-fill mr-0 mr-sm-2 mb-3" name="msg_contenu" id="msg_contenu" type="text" placeholder="Message ..."></textarea>
+                            <textarea class="form-control flex-fill mr-0 mr-sm-2 mb-3" name="contact_message" type="text" placeholder="Message ..."><?= isset($_SESSION['inputs']['contact_message'])  ? $_SESSION['inputs']['contact_message'] : ''; ?></textarea>
                             <button class="btn btn-primary mx-auto mt-2" type="submit">Envoyer</button>
                         </form>
                     </div>
@@ -173,9 +183,9 @@ require "./src/mailto.php";
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Adresse</h4>
+                                <h4 class="text-uppercase m-0">Localisation</h4>
                                 <hr class="my-4" />
-                                <div class="small text-black-50"><?php echo $address; ?></div>
+                                <div class="small text-black-50">LILLE</div>
                             </div>
                         </div>
                     </div>
@@ -185,7 +195,7 @@ require "./src/mailto.php";
                                 <i class="fas fa-envelope text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Email</h4>
                                 <hr class="my-4" />
-                                <div class="small text-black-50"><a href="#!"><?php echo $email; ?></a></div>
+                                <div class="small text-black-50"><a href="#!">email</a></div>
                             </div>
                         </div>
                     </div>
@@ -195,14 +205,14 @@ require "./src/mailto.php";
                                 <i class="fas fa-mobile-alt text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Téléphone</h4>
                                 <hr class="my-4" />
-                                <div class="small text-black-50"><?php echo $phone; ?></div>
+                                <div class="small text-black-50">0000000</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="social d-flex justify-content-center">
                     <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="https://www.instagram.com/franck.mlk/?hl=fr"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -218,3 +228,8 @@ require "./src/mailto.php";
         <script src="js/scripts.js"></script>
     </body>
 </html>
+<?php
+unset($_SESSION['inputs']);
+unset($_SESSION['success']);
+unset($_SESSION['errors']);
+?>
