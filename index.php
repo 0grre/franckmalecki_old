@@ -1,6 +1,5 @@
 <?php
 session_start();
-require "./src/informations.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,7 +16,8 @@ require "./src/informations.php";
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="assets/font/flaticon.css">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -25,9 +25,8 @@ require "./src/informations.php";
             <div class="container">
                 <!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Franck Malecki</a>-->
                 <div class="social d-flex justify-content-center">
+                    <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="flaticon-tik-tok"></i></a>
                     <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-
                     <a class="mx-2" href="https://www.instagram.com/franck.mlk/?hl=fr"><i class="fab fa-instagram"></i></a>
                 </div>
 
@@ -70,7 +69,6 @@ require "./src/informations.php";
                         </p>
                     </div>
                 </div>
-                <!-- <img class="img-fluid" src="assets/img/ipad.png" alt="" /> -->
             </div>
         </section>
         <!-- Projects-->
@@ -79,7 +77,6 @@ require "./src/informations.php";
                 <!-- Featured Project Row-->
                 <div class="row align-items-center no-gutters mb-5 mb-lg-5">
                     <div class="col-xl-8 col-lg-7">
-
                         <div class="d-flex flex-row">
                             <div class="min-h-50 w-75 d-flex align-items-center justify-content-center">
                                 <p class="position-absolute m-0 text-white small" id="nutri">80% NUTRITION</p>
@@ -145,21 +142,21 @@ require "./src/informations.php";
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container">
-                <?php if(array_key_exists('errors', $_SESSION)): ?>
-                    <div class="alert alert-danger">
-                        <?= implode('<br>', $_SESSION['errors']); ?>
-                    </div>
-                <?php endif; ?>
-                <?php if(array_key_exists('success', $_SESSION)): ?>
-                    <div class="alert alert-success">
-                        "Votre email a bien été envoyé."
-                    </div>
-                <?php endif; ?>
                 <div class="row">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Tu veux plus d'info ?</h2>
-                        <form class="form-group d-flex flex-column" action="src/post_contact.php" method="post">
+                        <?php if(array_key_exists('errors', $_SESSION)): ?>
+                            <div class="alert alert-danger">
+                                <?= implode('<br>', $_SESSION['errors']); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if(array_key_exists('success', $_SESSION)): ?>
+                            <div class="alert alert-success">
+                                "Votre email a bien été envoyé."
+                            </div>
+                        <?php endif; ?>
+                        <form class="form-group d-flex flex-column" action="src/send_email.php" method="post">
                             <div class="d-flex flex-rown">
                             <input class="form-control flex-fill mr-2 mb-3" name="contact_email" type="email" placeholder="Email ..." value="<?= isset($_SESSION['inputs']['contact_email'])  ? $_SESSION['inputs']['contact_email'] : ''; ?>"/>
                             <select class="form-control flex-fill ml-2 mb-3 text-primary" name="contact_goal">
@@ -169,7 +166,7 @@ require "./src/informations.php";
                             </select>
                             </div>
                             <textarea class="form-control flex-fill mr-0 mr-sm-2 mb-3" name="contact_message" type="text" placeholder="Message ..."><?= isset($_SESSION['inputs']['contact_message'])  ? $_SESSION['inputs']['contact_message'] : ''; ?></textarea>
-                            <button class="btn btn-primary mx-auto mt-2" type="submit">Envoyer</button>
+                            <button class="btn btn-primary mx-auto mt-2" name="envoye" type="submit">Envoyer</button>
                         </form>
                     </div>
                 </div>
@@ -211,8 +208,8 @@ require "./src/informations.php";
                     </div>
                 </div>
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                     <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="flaticon-tik-tok"></i></a>
                     <a class="mx-2" href="https://www.instagram.com/franck.mlk/?hl=fr"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -225,7 +222,7 @@ require "./src/informations.php";
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="assets/js/scripts.js"></script>
     </body>
 </html>
 <?php
