@@ -44,7 +44,7 @@ session_start();
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+        <header class="masthead" id="home">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">TA SEULE LIMITE</h1>
@@ -66,6 +66,9 @@ session_start();
                             Depuis ce jour est né une détermination sans faille pour construire et façonner mon corps. Et je peux dire aujourd'hui que j'ai apprivoisé ce style de vie, car oui ... c'en est un !<br><br>
                             Bref, mon résultat actuel ?<br>
                             J'ai pris environ 15kg de muscles, j'ai gagné en énergie, en cardio et mon mental n'est clairement plus le même !
+                        </p>
+                        <p class="text-white-50">
+                            Un jour avant de rejoindre l'activité, j'étais quelqu'un d'extrêmement fatigué
                         </p>
                     </div>
                 </div>
@@ -93,13 +96,13 @@ session_start();
                         <div class="featured-text text-center text-lg-left">
                             <h4>100% RÉSULTAT</h4>
                             <p class="text-black-50 mb-0">Les moyens que j'ai mis en oeuvre ?<br>Je te les partagerai volontier.
-                                Ce sera un réel plaisir de t'aider à améliorer ta vie car oui, il ne s'agit pas ici que d'un physique, c'est aussi ta confiance en toi, ton énergie, bref ton bien être !</p>
+                                Ce sera un réel plaisir de t'aider à améliorer ta vie car oui, il ne s'agit pas ici que d'un physique, c'est aussi ta confiance en toi, ton énergie, ton bien être !</p>
                         </div>
                     </div>
                 </div>
                 <!-- Project One Row-->
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="" /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.JPG" alt="" /></div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -107,9 +110,11 @@ session_start();
                                     <h4 class="text-white">CHALLENGER</h4>
                                     <p class="mb-0 text-white-90"></p>
                                     <ul class="mb-0 text-white-50 list-unstyled">
-                                        <li>Objectif physique</li>
-                                        <li>Groupes de motivation</li>
-                                        <li>Suivi autour de ta routine sportive et nutritionnelle</li>
+                                        <li>* Focus sur ton objectif</li>
+                                        <li>* évalution bien-être</li>
+                                        <li>* Suivi nutritionnel & sportif</li>
+                                        <li>* Groupe de motivation</li>
+                                        <li>* Résultat avant/après</li>
                                     </ul>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
@@ -119,19 +124,21 @@ session_start();
                 </div>
                 <!-- Project Two Row-->
                 <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.JPG" alt="" /></div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
                                     <h4 class="text-white">AMBASSADEUR</h4>
                                     <p class="mb-0 text-white-50"></p>
                                     <ul class="mb-0 text-white-50 list-unstyled">
-                                        <li>Compléments de revenus voire bien plus</li>
-                                        <li>Remise en forme de personne motivée en équipe</li>
-                                        <li>Entrepreneur, leader d'une équipe d'indépendants</li>
+                                        <li>* Rejoins notre mission</li>
+                                        <li>* Formation pour devenir indépendant dans l'activité</li>
+                                        <li>* Compléments de revenus / reconversion pro</li>
+                                        <li>* Forme à ton tour les membres de ton équipe</li>
+                                        <li>* Deviens une meilleure version de toi toi même</li>
                                     </ul>
-                                    <hr class="d-none d-lg-block mb-0 mr-0" />
+                                    <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
                             </div>
                         </div>
@@ -161,8 +168,11 @@ session_start();
                             <input class="form-control flex-fill mr-2 mb-3" name="contact_email" type="email" placeholder="Email ..." value="<?= isset($_SESSION['inputs']['contact_email'])  ? $_SESSION['inputs']['contact_email'] : ''; ?>"/>
                             <select class="form-control flex-fill ml-2 mb-3 text-primary" name="contact_goal">
                                 <option class="text-primary">Objectif ...</option>
-                                <option class="text-primary">Prise de masse</option>
                                 <option class="text-primary">Perte de poids</option>
+                                <option class="text-primary">Prise de masse musculaire</option>
+                                <option class="text-primary">Regain d'énergie</option>
+                                <option class="text-primary">Amélioration des performances sportives</option>
+                                <option class="text-primary">Bien être</option>
                             </select>
                             </div>
                             <textarea class="form-control flex-fill mr-0 mr-sm-2 mb-3" name="contact_message" type="text" placeholder="Message ..."><?= isset($_SESSION['inputs']['contact_message'])  ? $_SESSION['inputs']['contact_message'] : ''; ?></textarea>
@@ -173,8 +183,16 @@ session_start();
             </div>
         </section>
         <!-- Contact-->
+
         <section class="contact-section bg-black">
             <div class="container">
+                <!--
+                <div class="container d-flex justify-content-center">
+                    <a class="btn center js-scroll-trigger" href="#home"><i class="w-100 fas fa-arrow-circle-up"></i></a>
+                    </div>
+                    -->
+
+                <!--
                 <div class="row">
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
@@ -207,6 +225,7 @@ session_start();
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="social d-flex justify-content-center">
                     <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="flaticon-tik-tok"></i></a>
