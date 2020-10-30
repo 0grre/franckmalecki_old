@@ -11,13 +11,14 @@ session_start();
         <title>Franck Malecki - Ambassadeur d'un mode de vie sain et actif</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!--<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>-->
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="assets/css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="assets/font/flaticon.css">
+        <!-- Font Awesome icons (pro version)-->
+        <link href="./assets/fontawesome-pro/css/all.css" rel="stylesheet">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -25,11 +26,10 @@ session_start();
             <div class="container">
                 <!--<a class="navbar-brand js-scroll-trigger" href="#page-top">Franck Malecki</a>-->
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="flaticon-tik-tok"></i></a>
+                    <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="fab fa-tiktok"></i></a>
                     <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="https://www.instagram.com/franck.mlk/?hl=fr"><i class="fab fa-instagram"></i></a>
                 </div>
-
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -67,9 +67,11 @@ session_start();
                             Bref, mon résultat actuel ?<br>
                             J'ai pris environ 15kg de muscles, j'ai gagné en énergie, en cardio et mon mental n'est clairement plus le même !
                         </p>
+                        <!--
                         <p class="text-white-50">
                             Un jour avant de rejoindre l'activité, j'étais quelqu'un d'extrêmement fatigué
                         </p>
+                        -->
                     </div>
                 </div>
             </div>
@@ -110,11 +112,11 @@ session_start();
                                     <h4 class="text-white">CHALLENGER</h4>
                                     <p class="mb-0 text-white-90"></p>
                                     <ul class="mb-0 text-white-50 list-unstyled">
-                                        <li>* Focus sur ton objectif</li>
-                                        <li>* évalution bien-être</li>
-                                        <li>* Suivi nutritionnel & sportif</li>
-                                        <li>* Groupe de motivation</li>
-                                        <li>* Résultat avant/après</li>
+                                        <li>- Focus sur ton objectif</li>
+                                        <li>- évalution bien-être</li>
+                                        <li>- Suivi nutritionnel & sportif</li>
+                                        <li>- Groupe de motivation</li>
+                                        <li>- Résultat avant/après</li>
                                     </ul>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
@@ -132,11 +134,11 @@ session_start();
                                     <h4 class="text-white">AMBASSADEUR</h4>
                                     <p class="mb-0 text-white-50"></p>
                                     <ul class="mb-0 text-white-50 list-unstyled">
-                                        <li>* Rejoins notre mission</li>
-                                        <li>* Formation pour devenir indépendant dans l'activité</li>
-                                        <li>* Compléments de revenus / reconversion pro</li>
-                                        <li>* Forme à ton tour les membres de ton équipe</li>
-                                        <li>* Deviens une meilleure version de toi toi même</li>
+                                        <li>- Rejoins notre mission</li>
+                                        <li>- Formation pour devenir indépendant dans l'activité</li>
+                                        <li>- Compléments de revenus / reconversion pro</li>
+                                        <li>- Forme à ton tour les membres de ton équipe</li>
+                                        <li>- Deviens une meilleure version de toi toi même</li>
                                     </ul>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
@@ -186,12 +188,10 @@ session_start();
 
         <section class="contact-section bg-black">
             <div class="container">
-                <!--
-                <div class="container d-flex justify-content-center">
-                    <a class="btn center js-scroll-trigger" href="#home"><i class="w-100 fas fa-arrow-circle-up"></i></a>
-                    </div>
-                    -->
 
+                <div class="container d-flex justify-content-center">
+                    <a class="btn center js-scroll-trigger" href="#home"><i class="fas fa-caret-up"></i></a>
+                    </div>
                 <!--
                 <div class="row">
                     <div class="col-md-4 mb-3 mb-md-0">
@@ -228,8 +228,9 @@ session_start();
                 -->
                 <div class="social d-flex justify-content-center">
                     <a class="mx-2" href="https://www.facebook.com/franckmalecki"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="flaticon-tik-tok"></i></a>
                     <a class="mx-2" href="https://www.instagram.com/franck.mlk/?hl=fr"><i class="fab fa-instagram"></i></a>
+                    <a class="mx-2" href="https://vm.tiktok.com/ZSHg53bS/"><i class="fab fa-tiktok"></i></a>
+
                 </div>
             </div>
         </section>
