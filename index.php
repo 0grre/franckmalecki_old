@@ -67,9 +67,11 @@ session_start();
                             Bref, mon résultat actuel ?<br>
                             J'ai pris environ 15kg de muscles, j'ai gagné en énergie, en cardio et mon mental n'est clairement plus le même !
                         </p>
+                        <!--
                         <p class="text-white-50">
                             Un jour avant de rejoindre l'activité, j'étais quelqu'un d'extrêmement fatigué
                         </p>
+                        -->
                     </div>
                 </div>
             </div>
