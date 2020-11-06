@@ -25,9 +25,9 @@ if(!empty($errors)){
     $from = $_POST["contact_email"];
     $contact_goal = $_POST["contact_goal"];
     $contact_message = $_POST["contact_message"];
-    $to    = "franckmalecki@gmail.com";
+    $to    = "jbloup@hotmail.fr";
 
-    ini_set("SMTP", "smtp.ninon-pf.fr");   // Pour les hébergements mutualisés Windows de OVH
+    ini_set("SMTP", "smtp.franckmalecki.com");
 
 // -------------------------
 
