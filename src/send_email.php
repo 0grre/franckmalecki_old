@@ -25,9 +25,9 @@ if(!empty($errors)){
     $from = $_POST["contact_email"];
     $contact_goal = $_POST["contact_goal"];
     $contact_message = $_POST["contact_message"];
-    $to    = "jbloup@hotmail.fr";
+    $to    = "";
 
-    ini_set("SMTP", "smtp.franckmalecki.com");
+    ini_set("SMTP", "smtp.");
 
 // -------------------------
 
